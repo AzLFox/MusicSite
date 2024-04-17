@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница профиля</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #7733ff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #ddd;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        .profile-subscriptions {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .author {
+            width: 300px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .author:hover {
+            background-color: #fafafa;
+        }
+
+        .author img {
+            width: 100px;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+        .profile-container {
+            max-width: 1070px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-header img {
+            width: 100px;
+            margin-right: 20px;
+            border-radius: 50%;
+        }
+
+        .profile-header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .profile-header p {
+            margin-top: 0;
+            font-size: 16px;
+        }
+
+        /* Содержимое профиля */
+
+        .profile-content {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .profile-tabs a {
+            margin-right: 20px;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .profile-tabs a:hover {
+            background-color: #fafafa;
+        }
+
+        .navbar {
+            background-color: #4b0082; /* Тёмнофиолетовый цвет фона */
+            color: #ffffff; /* Белый цвет текста */
+            padding: 20px;
+            text-align: center;
+            display: flex;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+            background-color: #5522cc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/music/home">Главная</a>
+    <a href="/music/create">Добавить композицию</a>
+    <a href="/logout">Выход</a>
+</div>
+
+<div class="profile-container">
+    <div class="profile-header">
+        <img src="static/images/user-avatar.png" alt="Аватар пользователя">
+        <h1>Иван Иванов</h1>
+    </div>
+    <div class="profile-content">
+        <div class="profile-tab-content">
+            <div class="profile-info">
+                <p>Дата регистрации: 2023-11-16</p>
+                <p>Email: ivan.ivanov@example.com</p>
+            </div>
+            <h2>Подписки</h2>
+            <div class="profile-subscriptions">
+                <div class="author">
+                    <img src="static/images/author-avatar.png" alt="Аватар автора">
+                    <h2>Михаил Булгаков</h2>
+                </div>
+                <div class="author">
+                    <img src="static/images/author-avatar2.png" alt="Аватар автора">
+                    <h2>Фёдор Достоевский</h2>
+                </div>
+                <div class="author">
+                    <img src="static/images/author-avatar2.png" alt="Аватар автора">
+                    <h2>Фёдор Достоевский</h2>
+                </div>
+            </div>
+            <h2>Мои произведения</h2>
+            <div class="profile-subscriptions">
+                <th:block th:each="composition : ${userComposition}">
+                <div class="author">
+                    <a th:href="@{/music/composition/{compositionId}(compositionId=${composition.id})}">
+                        <h2 th:text="${composition.title}">Фёдор Достоевский</h2>
+                    </a>
+                </div>
+                </th:block>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

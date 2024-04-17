@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить произведение</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #7733ff;
+            color: #fff;
+            cursor: pointer;
+        }
+        textarea {
+            resize: none;
+            width: 200px;
+            height: 100px;
+        }
+        a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #ddd;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .profile-add-work {
+            margin-bottom: 20px;
+        }
+
+        .profile-add-work h2 {
+            margin-bottom: 10px;
+        }
+
+        .profile-add-work label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .profile-add-work input,
+        .profile-add-work textarea,
+        .profile-add-work select {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .profile-add-work button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: 1px solid #7733ff;
+            border-radius: 5px;
+            background-color: #7733ff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .profile-add-work button:hover {
+            background-color: #5522cc;
+        }
+
+        .navbar {
+            background-color: #4b0082; /* Тёмнофиолетовый цвет фона */
+            color: #ffffff; /* Белый цвет текста */
+            padding: 20px;
+            text-align: center;
+            display: flex;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+            background-color: #5522cc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/music/home">Главная</a>
+    <a href="/music/user/profile">Пользователь</a>
+</div>
+
+<div class="composition-container">
+    <div class="profile-add-work">
+        <h2>Добавить произведение</h2>
+        <form action="/music/create" method="post" th:object="${composition}">
+            <label for="title">Название:</label>
+            <input type="text" id="title" name="title" placeholder="Введите название произведения" th:field="*{title}" required>
+            <label for="description">Описание:</label>
+            <textarea id="description" name="description" placeholder="Введите описание произведения" th:field="*{description}" required></textarea>
+            <label for="description">Произведение:</label>
+            <textarea id="content" name="content" placeholder="Содержание произведения" th:field="*{content}" required></textarea><p></p>
+            <button type="submit">Добавить</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

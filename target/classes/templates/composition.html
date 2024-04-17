@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:word-wrap="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #7733ff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #ddd;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        textarea{
+            resize: none;
+            width: 90%;
+            height: 50px;
+        }
+
+        .commentBox {
+            width: 300px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        .navbar {
+            background-color: #4b0082; /* Тёмнофиолетовый цвет фона */
+            color: #ffffff; /* Белый цвет текста */
+            padding: 20px;
+            text-align: center;
+            display: flex;
+        }
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        .navbar a:hover {
+            text-decoration: underline;
+            background-color: #5522cc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="/music/home">Главная</a>
+    <a href="/music/user/profile">Пользователь</a>
+</div>
+
+
+<div class="container" th:object="${composition}">
+    <h1 th:text ="${composition.title}">В тёмных тонах</h1>
+    <p><strong>Автор: </strong> <span th:text ="${composition.author.username}"></span></p>
+    <p><strong>Дата создания: </strong> <span th:text ="${#dates.format(composition.createdAt, 'dd.MM.yyyy')}"></span></p>
+    <p><strong>Описание: </strong><span th:text ="${composition.description}"></span></p>
+
+    <div class="content">
+        <h2>Содержание:</h2>
+        <p th:text ="${composition.content}" word-wrap:normal></p>
+    </div>
+
+    <div class="actions" style="display: flex">
+        <form th:action="@{/music/composition/like/{compositionId}(compositionId=${composition.id})}" method="post">
+            <button  class="like-button" type="submit">Лайк</button>
+        </form>
+        <form>
+            <button class="subscribe-button">Подписаться</button>
+        </form>
+    </div>
+    <div>
+        <span style="font-size: 30px"> Лайки: </span>
+        <span th:text="*{likes.size()}" style="font-size: 30px"></span>
+    </div>
+
+    <form th:action="@{/music/composition/{compositionId}(compositionId=${composition.id})}" method="post" th:object="${comment}">
+        <label for="comment">Комментарий:</label>
+        <textarea id="comment" name="comment" th:field="*{content}" required></textarea>
+        <button type="submit">Добавить комментарий</button>
+    </form>
+
+    <form>
+        <div class="comments">
+            <h2>Комментарии:</h2>
+            <th:block th:each="comment : ${comments}">
+                <div class="commentBox">
+                    <span class="author" th:text="${comment.userId.username}"></span><span style="font-size: 10px"> дата: </span><span th:text="${#dates.format(comment.createAt, 'dd.MM.yyyy')}" style="font-size: 10px"></span>
+                    <p th:text="${comment.content}"></p>
+                </div>
+            </th:block>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

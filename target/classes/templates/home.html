@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная страница</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: sans-serif;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #7733ff;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    a {
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+      color: #ddd;
+    }
+
+    h1 {
+      text-align: center;
+    }
+    .works-container {
+      margin-left: 80px;
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .work {
+      width: 300px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .work-author {
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    .work-description {
+      margin-top: 10px;
+    }
+
+    .navbar {
+      background-color: #4b0082; /* Тёмнофиолетовый цвет фона */
+      color: #ffffff; /* Белый цвет текста */
+      padding: 20px;
+      text-align: center;
+      display: flex;
+    }
+    .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 15px;
+      width: 200px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+    }
+    .navbar a:hover {
+      text-decoration: underline;
+      background-color: #5522cc;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="/music/user/profile">Пользователь</a>
+  <a href="/logout">Выход</a>
+</div>
+
+<div class="home-container">
+  <h1>Главная страница</h1>
+  <div class="works-container" action="/home" method="post">
+    <th:block th:each="composition : ${compositions}">
+    <div class="work">
+        <a th:href="@{/music/composition/{compositionId}(compositionId=${composition.id})}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+          <h2> <span th:text="${composition.title}"></span></h2>
+          <p class="work-author" th:text="'Автор: '+${composition.author.username}"></p>
+          <p class="work-description" th:text="${composition.description}"></p>
+          <span th:text="${#dates.format(composition.createdAt, 'dd.MM.yyyy')}" class="badge bg-secondary rounded-pill"></span>
+        </a>
+    </div>
+    </th:block>
+  </div>
+</div>
+</body>
+</html>

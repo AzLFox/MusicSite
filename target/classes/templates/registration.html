@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Регистрация</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #7733ff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #ddd;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Регистрация</h1>
+    <form action="/music/authorize/registration" method="post" th:object="${user}">
+        <label for="name">Введите ваше имя:</label>
+        <input type="text" id="name" name="name" th:field="*{name}" required>
+        <label for="surname">Введите вашу фамилию:</label>
+        <input type="text" id="surname" name="surname" th:field="*{surname}" required>
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" th:field="*{username}" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" th:field="*{email}" required>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" th:field="*{password}" required>
+
+        <label for="role">Выберете вашу роль:</label>
+        <select type="text" id="role" name="role" th:field="*{role}" required>
+            <option value="">Выберите роль</option>
+            <option th:each="role : ${roles}" th:value="${role}" th:text="${role}"></option>
+        </select>
+        <button type="submit">Зарегистрироваться</button>
+        <a href="music/authorize/login">Войти</a>
+    </form>
+</div>
+</body>
+</html>

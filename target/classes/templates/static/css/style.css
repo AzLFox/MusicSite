@@ -1,0 +1,303 @@
+body {
+    background-color: #222;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #7733ff;
+    color: #fff;
+    cursor: pointer;
+}
+
+a {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #ddd;
+}
+
+h1 {
+    text-align: center;
+}
+
+.works-container {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.work {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.work-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.work-author {
+    font-size: 14px;
+    color: #ddd;
+}
+
+.work-description {
+    margin-top: 10px;
+}
+
+.home-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.profile-container {
+    max-width: 1070px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Шапка профиля */
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-header img {
+    width: 100px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.profile-header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.profile-header p {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+/* Содержимое профиля */
+
+.profile-content {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Вкладки профиля */
+
+.profile-tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.profile-tabs a {
+    margin-right: 20px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.profile-tabs a:hover {
+    background-color: #fafafa;
+}
+
+.profile-tabs a.active {
+    background-color: #7733ff;
+    color: #fff;
+}
+
+/* Содержимое вкладок */
+
+.profile-tab-content {
+    display: block;
+}
+
+.profile-tab-content.active {
+    display: block;
+}
+
+/* Информация о пользователе */
+
+.profile-info {
+    margin-bottom: 20px;
+}
+
+.profile-info p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Список произведений */
+
+/*.profile-works {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*}*/
+
+/*.work {*/
+/*    width: 300px;*/
+/*    margin: 10px;*/
+/*    padding: 10px;*/
+/*    border: 1px solid #ddd;*/
+/*    border-radius: 10px;*/
+/*    cursor: pointer;*/
+/*    transition: all 0.3s ease-in-out;*/
+/*}*/
+
+/*.work:hover {*/
+/*    background-color: #fafafa;*/
+/*}*/
+
+/*.work img {*/
+/*    width: 100%;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*.work-title {*/
+/*    font-size: 18px;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*.work-author {*/
+/*    font-size: 14px;*/
+/*    color: #777;*/
+/*}*/
+
+/*.work-description {*/
+/*    margin-top: 10px;*/
+/*    font-size: 16px;*/
+/*}*/
+
+/* Список подписок */
+
+.profile-subscriptions {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.author {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.author:hover {
+    background-color: #fafafa;
+}
+
+.author img {
+    width: 100px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.author-name {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.author-description {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+
+
+.composition-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Добавить произведение */
+
+.profile-add-work {
+    margin-bottom: 20px;
+}
+
+.profile-add-work h2 {
+    margin-bottom: 10px;
+}
+
+.profile-add-work label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.profile-add-work input,
+.profile-add-work textarea,
+.profile-add-work select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.profile-add-work button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: 1px solid #7733ff;
+    border-radius: 5px;
+    background-color: #7733ff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.profile-add-work button:hover {
+    background-color: #5522cc;
+}

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="guicedee.services.javax.servlet.api" type="repository">
+    <properties maven-id="com.guicedee.services:javax.servlet-api:1.0.2.15" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/guicedee/services/javax.servlet-api/1.0.2.15/javax.servlet-api-1.0.2.15.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
